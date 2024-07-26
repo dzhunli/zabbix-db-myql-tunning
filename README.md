@@ -40,6 +40,19 @@
 | HISTORY_VALUE | Replacement value for history |
 | TRENDS_VALUE | Replacement value for trends |
 
+:warning:  All trend and history values ​​will be eventually deleted by the housekeeper if their timestamp is greater than these values.  :warning:
 
+
+```HISTORY_VALUE``` - Sets the value for all history values zabix absolutely everywhere
+
+```TRENDS_VALUE```  - Sets the value for all trends values zabix absolutely everywhere
 
 ## Addition
+
+In catalog ```sql_checks```
+
+  -  ```get_tables_size.sql``` This query displays the top 10 largest tables in the ***your zabbix db*** database, providing their names, number of rows, data size, index size, and total size in gigabytes.
+
+  -  ```get_top_hosts_by_size_usage.sql``` This query provides the top 5 largest hosts based on the total size of their ***your table name*** records for a specific time period. It includes the host ID, host name, number of records, total average size in megabytes, and column sizes in megabytes.
+
+  -  ```get_top_size_metrics.sql```  This query identifies the item with the largest total data size in the history table for the last 30 minutes. It provides the host name, item ID, item key, count of records, average size of the value column, and the total data size.
