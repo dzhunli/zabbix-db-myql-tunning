@@ -1,6 +1,6 @@
 SELECT ho.hostid, ho.name, count(*) AS records, 
 (count(*)* (SELECT AVG_ROW_LENGTH FROM information_schema.tables 
-WHERE TABLE_NAME = 'history_text' and TABLE_SCHEMA = 'zabb')/1024/1024) AS 'Total size average (Mb)', 
+WHERE TABLE_NAME = 'history_text' and TABLE_SCHEMA = '<your zabbix db>')/1024/1024) AS 'Total size average (Mb)', 
 sum(length(history_text.value))/1024/1024 + sum(length(history_text.clock))/1024/1024 + sum(length(history_text.ns))/1024/1024 + sum(length(history_text.itemid))/1024/1024 AS 'history_text Column Size (Mb)'
 FROM history_text
 LEFT OUTER JOIN items i on history_text.itemid = i.itemid 
